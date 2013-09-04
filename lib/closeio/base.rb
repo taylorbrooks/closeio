@@ -1,0 +1,72 @@
+module Closeio
+  class Base < OpenStruct
+
+    include HTTParty
+    base_uri   'https://app.close.io/api/v1'
+    basic_auth ENV['CLOSEIO_API_KEY'], ''
+    headers 'Content-Type' => 'application/json'
+    debug_output $stdout
+    format :json
+
+    extend Forwardable
+    def_delegators 'self.class', :delete, :get, :post, :put, :resource_path, :bad_response
+
+    attr_reader :data
+
+    def initialize attrs={}
+      if attrs['data']
+        super attrs['data']
+      else
+        super attrs
+      end
+    end
+
+    class << self
+      def bad_response response
+        if response.class == HTTParty::Response
+          raise HTTParty::ResponseError, response
+        end
+        raise StandardError, 'Unknown error'
+      end
+
+      def all response = nil, opts={}
+        res = response || get(resource_path, opts)
+
+        if res.success?
+          res['data'].nil? ? [] : res['data'].map{|obj| new(obj)}
+        else
+          bad_response res
+        end
+      end
+
+      # Closeio::Lead.create(name: "Brooks Company", contacts: [{name: "Wyatt Brooks", emails: [{email: "wyatt@gmail.com"}]}]
+      def create opts={}
+        res = post resource_path, body: opts.to_json
+        res.success? ? new(res) : bad_response(res)
+      end
+
+      def update id, opts={}
+        put "#{resource_path}#{id}", body: opts.to_json
+      end
+
+      def destroy
+        if res['data'].is_a? Array
+          raise "Yo I'm an array"
+
+          delete "#{resource_path}#{id}"
+        end
+        
+      end
+
+      def find id
+        res = get "#{resource_path}#{id}"
+        res.ok? ? new(res) : bad_response(res)
+      end
+
+      def resource_path
+        klass = name.split('::').last.gsub(/([a-z\d])([A-Z])/,'\1_\2').downcase
+        return "/#{klass}/"
+      end
+    end
+  end
+end
