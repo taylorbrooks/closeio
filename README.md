@@ -3,11 +3,16 @@
 Learn about the Closeio API at http://developer.close.io.
 
 ### Installation
-````ruby
-  gem install closeio
-````
+Add this line to your application's Gemfile:
+  gem 'closeio'
 
-### Examples
+And then execute:
+  $ bundle
+
+Or install it yourself as:
+  $ gem install closeio
+
+### Usage
 ````ruby
   # Find a specific lead
   lead = Closeio::Lead.find 'lead_xxxxxxxxxxxx'
@@ -17,7 +22,7 @@ Learn about the Closeio API at http://developer.close.io.
   lead.contacts
   lead.opportunities
 
-  # Find leads that match  fields
+  # Find leads that match fields
   Closeio::Lead.where query: 'custom.current_system:[Simple Donation]'
 
   # Saved Search (SmartView)
@@ -25,12 +30,14 @@ Learn about the Closeio API at http://developer.close.io.
   saved_search.leads
 ````
 
-### Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Send me a pull request. Bonus points for topic branches.
+### Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
 
 ### Copyright
-
 Copyright (c) 2013 Taylor Brooks. See LICENSE for details.
