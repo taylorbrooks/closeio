@@ -4,13 +4,16 @@ Learn about the Closeio API at http://developer.close.io.
 
 ### Installation
 Add this line to your application's Gemfile:
+````ruby
+  # in your Gemfile
   gem 'closeio'
 
-And then execute:
-  $ bundle
+  # then...
+  bundle install
 
-Or install it yourself as:
-  $ gem install closeio
+  # Add your Close.io api key as an ENV variable
+  ENV['CLOSEIO_API_KEY']='xxxxxxxx'
+````
 
 ### Usage
 ````ruby
@@ -25,8 +28,11 @@ Or install it yourself as:
   # Find leads that match fields
   Closeio::Lead.where query: 'custom.current_system:[Simple Donation]'
 
+  # Create a lead
+  Closeio::Lead.create name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{email: "cartographer@bluthcompany.com"}]}]
+
   # Saved Search (SmartView)
-  saved_search = Closeio::SavedSearch.first
+  saved_search = Closeio::SavedSearch.all.first
   saved_search.leads
 ````
 

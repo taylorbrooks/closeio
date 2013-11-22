@@ -5,7 +5,7 @@ module Closeio
     base_uri   'https://app.close.io/api/v1'
     basic_auth ENV['CLOSEIO_API_KEY'], ''
     headers 'Content-Type' => 'application/json'
-    debug_output $stdout
+    #debug_output $stdout
     format :json
 
     extend Forwardable
@@ -39,7 +39,7 @@ module Closeio
         end
       end
 
-      # Closeio::Lead.create(name: "Brooks Company", contacts: [{name: "Wyatt Brooks", emails: [{email: "wyatt@gmail.com"}]}]
+      # Closeio::Lead.create name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{email: "cartographer@bluthcompany.com"}]}]
       def create opts={}
         res = post resource_path, body: opts.to_json
         res.success? ? new(res) : bad_response(res)
@@ -52,7 +52,7 @@ module Closeio
       def destroy
         if res['data'].is_a? Array
           raise "Yo I'm an array"
-
+        else
           delete "#{resource_path}#{id}"
         end
         

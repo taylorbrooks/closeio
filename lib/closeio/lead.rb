@@ -12,5 +12,9 @@ module Closeio
         bad_response res
       end
     end
+
+    def contact
+      self.contacts.first
+    end
   end
 end

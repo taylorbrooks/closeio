@@ -1,3 +1,7 @@
 module Closeio
-  class SavedSearch < Base; end
+  class SavedSearch < Base
+    def leads
+      Closeio::Lead.where query: self.query
+    end
+  end
 end
