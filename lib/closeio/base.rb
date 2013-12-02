@@ -5,7 +5,7 @@ module Closeio
     base_uri   'https://app.close.io/api/v1'
     basic_auth ENV['CLOSEIO_API_KEY'], ''
     headers 'Content-Type' => 'application/json'
-    debug_output $stdout
+    #debug_output $stdout
     format :json
 
     extend Forwardable
