@@ -13,6 +13,10 @@ module Closeio
       end
     end
 
+    def emails
+      Closeio::EmailActivity.where lead_id: self.id
+    end
+
     def contact
       self.contacts.first
     end

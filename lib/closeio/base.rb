@@ -5,7 +5,7 @@ module Closeio
     base_uri   'https://app.close.io/api/v1'
     basic_auth ENV['CLOSEIO_API_KEY'], ''
     headers 'Content-Type' => 'application/json'
-    #debug_output $stdout
+    debug_output $stdout
     format :json
 
     extend Forwardable
@@ -19,6 +19,11 @@ module Closeio
       else
         super attrs
       end
+    end
+
+    def save
+      res = put("#{resource_path}#{self.id}", body: opts.to_json)
+      res.ok? ? res : bad_response(res)
     end
 
     class << self
@@ -45,22 +50,34 @@ module Closeio
         res.success? ? new(res) : bad_response(res)
       end
 
+      #
+      # Closeio::Lead.update '39292', name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{email: "cartographer@bluthcompany.com"}]}]
+      #
       def update id, opts={}
-        put "#{resource_path}#{id}", body: opts.to_json
+        put "#{resource_path}#{id}/", body: opts.to_json
       end
 
-      def destroy
+      def destroy id
         if res['data'].is_a? Array
           raise "Yo I'm an array"
         else
-          delete "#{resource_path}#{id}"
+          delete "#{resource_path}#{id}/"
         end
-        
       end
 
       def find id
-        res = get "#{resource_path}#{id}"
+        res = get "#{resource_path}#{id}/"
         res.ok? ? new(res) : bad_response(res)
+      end
+
+      def where opts={}
+        res = get(resource_path, query: opts)
+
+        if res.success?
+          res['data'].nil? ? [] : res['data'].map{|obj| new(obj)}
+        else
+          bad_response res
+        end
       end
 
       def resource_path
