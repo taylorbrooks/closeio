@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency(%q<crack>, [">= 0.1.8"])
-  s.add_runtime_dependency(%q<httparty>, [">= 0.11.0"])
+  s.add_runtime_dependency(%q<httparty>, ["0.11.0"])
 
   s.add_development_dependency "bundler", "~> 1.3"
   s.add_development_dependency "rake"
