@@ -17,6 +17,10 @@ module Closeio
       Closeio::EmailActivity.where lead_id: self.id
     end
 
+    def notes
+      Closeio::NoteActivity.where lead_id: self.id
+    end
+
     def contact
       self.contacts.first
     end
