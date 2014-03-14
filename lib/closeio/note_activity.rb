@@ -1,8 +1,8 @@
 module Closeio
-  class EmailActivity < Base
+  class NoteActivity < Base
 
     def self.resource_path
-      return "/activity/email/"
+      return "/activity/note/"
     end
   end
 end
