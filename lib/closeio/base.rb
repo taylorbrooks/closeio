@@ -5,7 +5,7 @@ module Closeio
     base_uri   'https://app.close.io/api/v1'
     basic_auth ENV['CLOSEIO_API_KEY'], ''
     headers 'Content-Type' => 'application/json'
-    #debug_output $stdout
+    debug_output $stdout
     format :json
 
     extend Forwardable
@@ -22,8 +22,7 @@ module Closeio
     end
 
     def save
-      res = put("#{resource_path}#{self.id}", body: opts.to_json)
-      res.ok? ? res : bad_response(res)
+      put "#{resource_path}#{self.id}/", body: self.to_h.to_json
     end
 
     class << self
