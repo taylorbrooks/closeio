@@ -17,7 +17,7 @@ module Closeio
       if attrs['data']
         super attrs['data']
       else
-        super attrs
+        super Hash[attrs]
       end
     end
 
