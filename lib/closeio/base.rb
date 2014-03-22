@@ -33,10 +33,6 @@ module Closeio
         raise StandardError, 'Unknown error'
       end
 
-      def limit num
-        opts.merge!({limit: num})
-      end
-
       def all response = nil, opts={}
         res = response || get(resource_path, opts)
 
