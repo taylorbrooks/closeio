@@ -57,11 +57,7 @@ module Closeio
       end
 
       def destroy id
-        if res['data'].is_a? Array
-          raise "Yo I'm an array"
-        else
-          delete "#{resource_path}#{id}/"
-        end
+        delete "#{resource_path}#{id}/"
       end
 
       def find id
