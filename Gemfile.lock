@@ -1,22 +1,22 @@
 PATH
   remote: .
   specs:
-    closeio (0.0.1)
+    closeio (0.0.9)
       crack (>= 0.1.8)
       httparty (>= 0.11.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    crack (0.4.1)
-      safe_yaml (~> 0.9.0)
-    httparty (0.11.0)
-      multi_json (~> 1.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
+    httparty (0.13.1)
+      json (~> 1.8)
       multi_xml (>= 0.5.2)
-    multi_json (1.7.9)
+    json (1.8.1)
     multi_xml (0.5.5)
     rake (10.1.0)
-    safe_yaml (0.9.5)
+    safe_yaml (1.0.3)
     test-unit (2.5.5)
 
 PLATFORMS
