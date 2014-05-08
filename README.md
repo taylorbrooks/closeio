@@ -19,7 +19,7 @@ Add this line to your application's Gemfile:
 ````ruby
   # Find a specific lead
   lead = Closeio::Lead.find 'lead_xxxxxxxxxxxx'
-  
+
   # See some data about the lead
   lead.addresses
   lead.contacts
@@ -29,7 +29,7 @@ Add this line to your application's Gemfile:
   Closeio::Lead.where query: 'custom.current_system:[Simple Donation]'
 
   # Create a lead
-  Closeio::Lead.create name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{email: "cartographer@bluthcompany.com"}]}]
+  Closeio::Lead.create name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{type: "office", email: "cartographer@bluthcompany.com"}]}]
 
   # Saved Search (SmartView)
   saved_search = Closeio::SavedSearch.all.first
