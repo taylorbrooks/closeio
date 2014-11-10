@@ -11,13 +11,12 @@ Add this line to your application's Gemfile:
   # then...
   bundle install
 
+  # Set your Api Key (in a `config/initializer` or `config/environment/*`)
+  Closeio.configure("xxxxxx")
 ````
 
 ### Usage
 ````ruby
-  # Set your Api Key (in a `config/initializer` or `config/environment/*`)
-  Closeio.configure("xxxxxx")
-
   # Find a specific lead
   lead = Closeio::Lead.find 'lead_xxxxxxxxxxxx'
 
