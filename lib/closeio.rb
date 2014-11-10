@@ -19,3 +19,5 @@ require 'closeio/saved_search'
 require 'closeio/task'
 require 'closeio/user'
 require 'closeio/version'
+require 'closeio/config'
+require 'closeio/railtie' if defined?(Rails)
