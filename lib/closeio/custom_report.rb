@@ -4,6 +4,10 @@ module Closeio
       return "/report/custom/"
     end
 
+    def self.search(organization_id, opt={})
+      get "#{resource_path}#{organization_id}/", query: opts
+    end
+
     def self.leads organization_id, opts={}
       get "#{resource_path}lead/#{organization_id}/", query: opts
     end

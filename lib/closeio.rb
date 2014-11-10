@@ -3,6 +3,7 @@ require 'ostruct'
 require 'forwardable'
 
 require 'closeio/base'
+require 'closeio/bulk_action'
 require 'closeio/contact'
 require 'closeio/email_activity'
 require 'closeio/email_template'
