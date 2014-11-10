@@ -11,17 +11,13 @@ Add this line to your application's Gemfile:
   # then...
   bundle install
 
-  # Add your Close.io api key as an ENV variable
-  ENV['CLOSEIO_API_KEY']='xxxxxxxx'
-
-  # or if you're using Rails
-  1. Create a `closeio.yml` file 
-  2. Set `api_key:` to your Closeio api key
-  3. Place it in `/config/initializers/`
 ````
 
 ### Usage
 ````ruby
+  # Set your Api Key (in a `config/initializer` or `config/environment/*`)
+  Closeio.configure("xxxxxx")
+
   # Find a specific lead
   lead = Closeio::Lead.find 'lead_xxxxxxxxxxxx'
 

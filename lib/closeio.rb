@@ -22,3 +22,9 @@ require 'closeio/user'
 require 'closeio/version'
 require 'closeio/config'
 require 'closeio/railtie' if defined?(Rails)
+
+module Closeio
+  def self.configure(api_key=nil)
+    Base.configure(api_key)
+  end
+end

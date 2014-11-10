@@ -3,7 +3,6 @@ module Closeio
 
     include HTTParty
     base_uri   'https://app.close.io/api/v1'
-    basic_auth ENV['CLOSEIO_API_KEY'], ''
     headers 'Content-Type' => 'application/json'
     #debug_output $stdout
     format :json
@@ -26,11 +25,16 @@ module Closeio
     end
 
     class << self
-      def bad_response response
-        if response.class == HTTParty::Response
-          raise HTTParty::ResponseError, response
-        end
-        raise StandardError, 'Unknown error'
+      def configure(api_key)
+        @default_options.merge!(basic_auth: {
+          username: api_key,
+          password: ''
+        })
+      end
+
+      def bad_response(response)
+        raise "Unauthorized" if response.values.include? "Unauthorized"
+        raise response
       end
 
       def all response = nil, opts={}
@@ -39,7 +43,7 @@ module Closeio
         if res.success?
           res['data'].nil? ? [] : res['data'].map{|obj| new(obj)}
         else
-          bad_response res
+          bad_response(res)
         end
       end
 
