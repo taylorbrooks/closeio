@@ -34,7 +34,7 @@ module Closeio
 
       def bad_response(response)
         raise "Unauthorized" if response.values.include? "Unauthorized"
-        raise response
+        raise response.inspect
       end
 
       def all response = nil, opts={}
