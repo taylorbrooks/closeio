@@ -2,6 +2,8 @@
 
 Learn about the Closeio API at http://developer.close.io.
 
+I :heart: Close.io, so if you have problems using the gem or would like to see support for new endpoints, please open a GitHub issue -- I'll get it resolved as quick as I can.
+
 ### Installation
 Add this line to your application's Gemfile:
 ````ruby
@@ -40,7 +42,6 @@ Add this line to your application's Gemfile:
   saved_search.leads
 ````
 
-If you have problems using the gem or would like to see support for new endpoints, please open a GitHub issue.
 
 ### Contributing
 
