@@ -13,7 +13,7 @@ Add this line to your application's Gemfile:
   # then...
   bundle install
 
-  # Set your Api Key (in a `config/initializer` or `config/environment/*`)
+  # Set your Api Key (`config/initializers/closeio.rb` or `config/environment/*.rb`)
   Closeio.configure("xxxxxx")
 ````
 
