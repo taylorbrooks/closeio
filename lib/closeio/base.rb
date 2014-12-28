@@ -37,7 +37,7 @@ module Closeio
         raise response.inspect
       end
 
-      def all response = nil, opts={}
+      def all(response=nil, opts={})
         res = response || get(resource_path, opts)
 
         if res.success?
@@ -48,28 +48,28 @@ module Closeio
       end
 
       # Closeio::Lead.create name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{email: "cartographer@bluthcompany.com"}]}]
-      def create opts={}
-        res = post resource_path, body: opts.to_json
+      def create(opts={})
+        res = post(resource_path, body: opts.to_json)
         res.success? ? new(res) : bad_response(res)
       end
 
       #
       # Closeio::Lead.update '39292', name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{email: "cartographer@bluthcompany.com"}]}]
       #
-      def update id, opts={}
+      def update(id, opts={})
         put "#{resource_path}#{id}/", body: opts.to_json
       end
 
-      def destroy id
+      def destroy(id)
         delete "#{resource_path}#{id}/"
       end
 
-      def find id
+      def find(id)
         res = get "#{resource_path}#{id}/"
         res.ok? ? new(res) : bad_response(res)
       end
 
-      def where opts={}
+      def where(opts={})
         res = get(resource_path, query: opts)
 
         if res.success?
