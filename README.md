@@ -18,7 +18,7 @@ Add this line to your application's Gemfile:
 ### Usage
 ````ruby
   # Find a specific lead
-  lead = Closeio::Lead.find 'lead_xxxxxxxxxxxx'
+  lead = Closeio::Lead.find('lead_xxxxxxxxxxxx')
 
   # See some data about the lead
   lead.addresses
@@ -26,15 +26,21 @@ Add this line to your application's Gemfile:
   lead.opportunities
 
   # Find leads that match fields
-  Closeio::Lead.where query: 'custom.current_system:[Simple Donation]'
+  Closeio::Lead.where(query: 'custom.current_system:[Simple Donation]')
 
   # Create a lead
-  Closeio::Lead.create name: "Bluth Company", contacts: [{name: "Buster Bluth", emails: [{type: "office", email: "cartographer@bluthcompany.com"}]}]
+  Closeio::Lead.create(name: "Bluth Company", contacts: [{
+      name: "Buster Bluth",
+      emails: [{type: "office", email: "cartographer@bluthcompany.com"}]
+    }]
+  )
 
   # Saved Search (SmartView)
   saved_search = Closeio::SavedSearch.all.first
   saved_search.leads
 ````
+
+If you have problems using the gem or would like to see support for new endpoints, please open a GitHub issue.
 
 ### Contributing
 
@@ -46,4 +52,4 @@ Add this line to your application's Gemfile:
 
 
 ### Copyright
-Copyright (c) 2013 Taylor Brooks. See LICENSE for details.
+Copyright (c) 2015 Taylor Brooks. See LICENSE for details.
