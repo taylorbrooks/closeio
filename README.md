@@ -31,7 +31,9 @@ Add this line to your application's Gemfile:
   Closeio::Lead.where(query: 'custom.current_system:[Simple Donation]')
 
   # Create a lead
-  Closeio::Lead.create(name: "Bluth Company", contacts: [{
+  Closeio::Lead.create(
+    name: "Bluth Company",
+    contacts: [{
       name: "Buster Bluth",
       emails: [{type: "office", email: "cartographer@bluthcompany.com"}]
     }]
