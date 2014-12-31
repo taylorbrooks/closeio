@@ -28,4 +28,12 @@ module Closeio
   def self.configure(api_key=nil)
     Base.configure(api_key)
   end
+
+  def self.reset
+    Closeio::Base.default_options[:basic_auth][:username] = nil
+
+    Closeio::Base.descendants.each do |resource|
+      resource.default_options[:basic_auth][:username] = nil
+    end
+  end
 end
