@@ -26,14 +26,19 @@ require 'closeio/railtie' if defined?(Rails)
 
 module Closeio
   def self.configure(api_key=nil)
-    Base.configure(api_key)
+   set_api_keys(api_key)
   end
 
   def self.reset
-    Closeio::Base.default_options[:basic_auth][:username] = nil
+    set_api_keys(nil)
+  end
 
+  def self.set_api_keys(api_key)
+    hash = {basic_auth: {username: api_key, password: ''}}
+
+    Closeio::Base.default_options.merge!(hash)
     Closeio::Base.descendants.each do |resource|
-      resource.default_options[:basic_auth][:username] = nil
+      resource.default_options.merge!(hash)
     end
   end
 end
