@@ -1,3 +1,8 @@
 module Closeio
-  class Organization < Base; end
+  class Organization < Base
+
+    def users
+      self.memberships
+    end
+  end
 end
