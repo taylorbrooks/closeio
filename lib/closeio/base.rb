@@ -25,6 +25,10 @@ module Closeio
     end
 
     class << self
+      def descendants
+        ObjectSpace.each_object(Class).select { |klass| klass < self }
+      end
+
       def configure(api_key)
         @default_options.merge!(basic_auth: {
           username: api_key,
