@@ -15,14 +15,18 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split($/)
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.test_files    = s.files.grep(%r{^(test)/})
 
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency(%q<crack>, [">= 0.1.8"])
-  s.add_runtime_dependency(%q<httparty>, [">= 0.11.0"])
+  s.add_runtime_dependency     'faraday'
+  s.add_runtime_dependency     'faraday_middleware'
+  s.add_runtime_dependency     'json'
+  s.add_runtime_dependency     'hashie'
 
-  s.add_development_dependency "bundler", "~> 1.3"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "test-unit"
+  s.add_development_dependency 'bundler'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'minitest'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
 end
