@@ -5,7 +5,6 @@ Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
 
 module Closeio
   class Client
-    # include Closeio::Client::ActivityReport
     include Closeio::Client::Activity
     include Closeio::Client::BulkAction
     include Closeio::Client::Contact
@@ -51,8 +50,8 @@ module Closeio
         connection.basic_auth api_key, ''
         connection.request    :json
         connection.response   :logger
-        connection.response   :json
         connection.use        FaradayMiddleware::Mashify
+        connection.response   :json
         connection.adapter    Faraday.default_adapter
       end
     end

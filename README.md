@@ -8,30 +8,29 @@ I :heart: Close.io, so if you have problems using the gem or would like to see s
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'closeio'
+  gem 'closeio', '~2.0'
 
   # then...
   bundle install
-
-  # Set your Api Key (`config/initializers/closeio.rb` or `config/environment/*.rb`)
-  Closeio.configure("xxxxxx")
 ````
 
 ### Usage
 ````ruby
+  client = Closeio::Client.new("api key")
+
   # Find a specific lead
-  lead = Closeio::Lead.find('lead_xxxxxxxxxxxx')
+  client.find_lead('lead_xxxxxxxxxxxx')
 
   # See some data about the lead
-  lead.addresses
-  lead.contacts
-  lead.opportunities
+  lead.data.addresses
+  lead.data.contacts
+  lead.data.opportunities
 
   # Find leads that match fields
-  Closeio::Lead.where(query: 'custom.current_system:[Simple Donation]')
+  client.list_leads('custom.favorite_color:"cornflower blue"')
 
   # Create a lead
-  Closeio::Lead.create(
+  client.create_lead(
     name: "Bluth Company",
     contacts: [{
       name: "Buster Bluth",
@@ -40,8 +39,8 @@ Add this line to your application's Gemfile:
   )
 
   # Saved Search (SmartView)
-  saved_search = Closeio::SavedSearch.all.first
-  saved_search.leads
+  smart_view = client.list_smart_views
+  smart_views.leads
 ````
 
 ### History
