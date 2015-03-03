@@ -36,11 +36,11 @@ module Closeio
       end.body
     end
 
-    def put(url, options={})
+    def put(path, options={})
       connection.put(path, options).body
     end
 
-    def delete(url, options = {})
+    def delete(path, options = {})
       connection.delete(path, options).body
     end
 

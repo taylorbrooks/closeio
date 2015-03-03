@@ -8,7 +8,7 @@ I :heart: Close.io, so if you have problems using the gem or would like to see s
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'closeio', '~2.0'
+  gem 'closeio', '~> 2.0'
 
   # then...
   bundle install
