@@ -25,7 +25,7 @@ module Closeio
       private
 
       def custom_field_path
-        "/custom_fields/lead/"
+        "custom_fields/lead/"
       end
 
     end
