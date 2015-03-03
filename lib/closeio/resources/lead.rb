@@ -7,7 +7,7 @@ module Closeio
       end
 
       def find_lead(id)
-        get(individual_lead_path(id))
+        get(lead_path(id))
       end
 
       def create_lead(options = {})
@@ -15,24 +15,17 @@ module Closeio
       end
 
       def update_lead(id, options = {})
-        put(individual_lead_path(id, options))
+        put(lead_path(id), options)
       end
 
       def delete_lead(id)
-        delete(individual_lead_path(id))
-      end
-
-      def lead_contacts
+        delete(lead_path(id))
       end
 
       private
 
-      def lead_path
-        "lead/"
-      end
-
-      def individual_lead_path(id)
-        "#{lead_path}#{id}/"
+      def lead_path(id=nil)
+        id ? "lead/#{id}/" : "lead/"
       end
 
     end

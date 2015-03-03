@@ -11,17 +11,17 @@ module Closeio
       end
 
       def update_lead_status(id, options={})
-        put("#{lead_status_path}#{id}/", options)
+        put(lead_status_path(id), options)
       end
 
       def delete_lead_status(id)
-        delete("#{lead_status_path}#{id}/")
+        delete(lead_status_path(id))
       end
 
       private
 
-      def lead_status_path
-        "/status/lead/"
+      def lead_status_path(id)
+        id ? "status/lead/#{id}/" : "status/lead/"
       end
 
     end

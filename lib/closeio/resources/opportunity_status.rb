@@ -11,17 +11,17 @@ module Closeio
       end
 
       def update_opportunity_status(id, options={})
-        put("#{opportunity_status_path}#{id}/", options)
+        put(opportunity_status_path(id), options)
       end
 
       def delete_opportunity_status(id)
-        delete("#{opportunity_status_path}#{id}/")
+        delete(opportunity_status_path(id))
       end
 
       private
 
-      def opportunity_status_path
-        "/status/opportunity/"
+      def opportunity_status_path(id)
+        id ? "status/opportunity/#{id}/" : "status/opportunity/"
       end
 
     end

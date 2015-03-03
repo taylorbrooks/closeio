@@ -7,7 +7,7 @@ module Closeio
       end
 
       def find_opportunity(id)
-        get(individual_opportunity_path(id))
+        get(opportunity_path(id))
       end
 
       def create_opportunity(options={})
@@ -15,21 +15,17 @@ module Closeio
       end
 
       def update_opportunity(id, options={})
-        put(individual_opportunity_path(id), options)
+        put(opportunity_path(id), options)
       end
 
       def delete_opportunity(id)
-        delete(individual_opportunity_path(id))
+        delete(opportunity_path(id))
       end
 
       private
 
-      def opportunity_path
-        "opportunity/"
-      end
-
-      def individual_opportunity_path(id)
-        "#{opportunity_path}#{id}/"
+      def opportunity_path(id)
+        id ? "opportunity/#{id}/" : "opportunity/"
       end
 
     end

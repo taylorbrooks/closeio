@@ -7,7 +7,7 @@ module Closeio
       end
 
       def find_contact(id)
-        get(individual_contact_path(id))
+        get(contact_path(id))
       end
 
       def create_contact
@@ -15,21 +15,17 @@ module Closeio
       end
 
       def update_contact
-        put(individual_contact_path(id))
+        put(contact_path(id))
       end
 
       def delete_contact(id)
-        delete(individual_contact_path(id))
+        delete(contact_path(id))
       end
 
       private
 
-      def contact_path
-        "contact/"
-      end
-
-      def individual_contact_path(id)
-        "#{contact_path}#{id}/"
+      def contact_path(id)
+        id ? "contact/#{id}/" : "contact/"
       end
 
     end

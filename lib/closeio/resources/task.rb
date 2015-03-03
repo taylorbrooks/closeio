@@ -7,7 +7,7 @@ module Closeio
       end
 
       def find_task(id)
-        get(individual_task_path(id))
+        get(task_path(id))
       end
 
       def create_task(options={})
@@ -15,21 +15,17 @@ module Closeio
       end
 
       def update_task(id, options={})
-        put(individual_task_path(id), options)
+        put(task_path(id), options)
       end
 
       def delete_task(id)
-        delete(individual_task_path(id))
+        delete(task_path(id))
       end
 
       private
 
-      def task_path
-        "task/"
-      end
-
-      def individual_task_path(id)
-        "#{task_path}#{id}/"
+      def task_path(id)
+        id ? "task/#{id}/" : "task/"
       end
 
     end
