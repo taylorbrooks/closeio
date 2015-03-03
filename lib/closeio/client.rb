@@ -14,6 +14,7 @@ module Closeio
     include Closeio::Client::LeadStatus
     include Closeio::Client::Opportunity
     include Closeio::Client::OpportunityStatus
+    include Closeio::Client::Organization
     include Closeio::Client::Report
     include Closeio::Client::SmartView
     include Closeio::Client::Task

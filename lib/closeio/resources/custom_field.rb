@@ -6,7 +6,7 @@ module Closeio
         get(custom_field_path)
       end
 
-      def lead_custom_fields(id)
+      def find_custom_field(id)
         get("#{custom_field_path}#{id}/")
       end
 
