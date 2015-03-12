@@ -22,6 +22,10 @@ module Closeio
         delete(lead_path(id))
       end
 
+      def merge_leads(id_source, id_destination)
+        post('lead/merge/', { source: id_source, destination: id_destination })
+      end
+
       private
 
       def lead_path(id=nil)
