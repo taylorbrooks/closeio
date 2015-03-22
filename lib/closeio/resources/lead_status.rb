@@ -20,7 +20,7 @@ module Closeio
 
       private
 
-      def lead_status_path(id)
+      def lead_status_path(id=nil)
         id ? "status/lead/#{id}/" : "status/lead/"
       end
 

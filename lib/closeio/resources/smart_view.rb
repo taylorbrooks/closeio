@@ -24,7 +24,7 @@ module Closeio
 
       private
 
-      def smart_view_path(id)
+      def smart_view_path(id=nil)
         id ? "saved_search/#{id}/" : "saved_search/"
       end
 

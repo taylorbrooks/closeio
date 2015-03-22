@@ -20,7 +20,7 @@ module Closeio
 
       private
 
-      def opportunity_status_path(id)
+      def opportunity_status_path(id=nil)
         id ? "status/opportunity/#{id}/" : "status/opportunity/"
       end
 

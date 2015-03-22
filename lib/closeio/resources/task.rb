@@ -24,7 +24,7 @@ module Closeio
 
       private
 
-      def task_path(id)
+      def task_path(id=nil)
         id ? "task/#{id}/" : "task/"
       end
 

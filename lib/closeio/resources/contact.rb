@@ -24,7 +24,7 @@ module Closeio
 
       private
 
-      def contact_path(id)
+      def contact_path(id=nil)
         id ? "contact/#{id}/" : "contact/"
       end
 
