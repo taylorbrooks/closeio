@@ -45,7 +45,22 @@ module Closeio
       connection.delete(path, options).body
     end
 
+    def paginate(path, options)
+      results = []
+      skip    = 0
+
+      begin
+        res   = get(lead_path, options.merge!(_skip: skip))
+        results.push res.data
+        skip += res.data.count
+      end while res.has_more
+      json = {has_more: false, total_results: res.total_results, data: results.flatten}
+      Hashie::Mash.new json
+    end
+
     private
+
+
     def connection
       Faraday.new(url: "https://app.close.io/api/v1", headers: { accept: 'application/json' }) do |connection|
         connection.basic_auth api_key, ''

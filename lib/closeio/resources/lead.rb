@@ -2,8 +2,12 @@ module Closeio
   class Client
     module Lead
 
-      def list_leads(options = {})
-        get(lead_path, query: options)
+      def list_leads(options = {}, paginate = false)
+        if paginate
+          paginate(lead_path, query: options)
+        else
+          get(lead_path, query: options)
+        end
       end
 
       def find_lead(id)
