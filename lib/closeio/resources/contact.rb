@@ -14,8 +14,8 @@ module Closeio
         post(contact_path)
       end
 
-      def update_contact
-        put(contact_path(id))
+      def update_contact(id, options = {})
+        put(contact_path(id), options)
       end
 
       def delete_contact(id)
