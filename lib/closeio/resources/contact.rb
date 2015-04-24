@@ -10,8 +10,8 @@ module Closeio
         get(contact_path(id))
       end
 
-      def create_contact
-        post(contact_path)
+      def create_contact(options = {})
+        post(contact_path, options)
       end
 
       def update_contact(id, options = {})
