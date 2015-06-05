@@ -50,9 +50,11 @@ module Closeio
       skip    = 0
 
       begin
-        res   = get(lead_path, options.merge!(_skip: skip))
-        results.push res.data
-        skip += res.data.count if res.data
+        res   = get(path, options.merge!(_skip: skip))
+        if res.data
+          results.push res.data
+          skip += res.data.count
+        end
       end while res.has_more
       json = {has_more: false, total_results: res.total_results, data: results.flatten}
       Hashie::Mash.new json
