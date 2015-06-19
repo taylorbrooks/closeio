@@ -2,8 +2,12 @@ module Closeio
   class Client
     module EmailTemplate
 
-      def list_email_templates
-        get(email_template_path)
+      def list_email_templates(paginate = false)
+        if paginate
+          paginate(email_template_path)
+        else
+          get(email_template_path)
+        end
       end
 
       def find_email_template(id)
