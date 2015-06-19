@@ -45,7 +45,7 @@ module Closeio
       connection.delete(path, options).body
     end
 
-    def paginate(path, options)
+    def paginate(path, options={})
       results = []
       skip    = 0
 
