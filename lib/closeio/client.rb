@@ -20,10 +20,11 @@ module Closeio
     include Closeio::Client::Task
     include Closeio::Client::User
 
-    attr_reader :api_key
+    attr_reader :api_key, :logger
 
-    def initialize(api_key)
+    def initialize(api_key, logger = true)
       @api_key = api_key
+      @logger  = logger
     end
 
     def get(path, options={})
@@ -67,7 +68,7 @@ module Closeio
       Faraday.new(url: "https://app.close.io/api/v1", headers: { accept: 'application/json' }) do |connection|
         connection.basic_auth api_key, ''
         connection.request    :json
-        connection.response   :logger
+        connection.response   :logger unless logger
         connection.use        FaradayMiddleware::Mashify
         connection.response   :json
         connection.adapter    Faraday.default_adapter
