@@ -65,13 +65,13 @@ module Closeio
 
 
     def connection
-      Faraday.new(url: "https://app.close.io/api/v1", headers: { accept: 'application/json' }) do |connection|
-        connection.basic_auth api_key, ''
-        connection.request    :json
-        connection.response   :logger unless logger
-        connection.use        FaradayMiddleware::Mashify
-        connection.response   :json
-        connection.adapter    Faraday.default_adapter
+      Faraday.new(url: "https://app.close.io/api/v1", headers: { accept: 'application/json' }) do |conn|
+        conn.basic_auth api_key, ''
+        conn.request    :json
+        conn.response   :logger if logger
+        conn.use        FaradayMiddleware::Mashify
+        conn.response   :json
+        conn.adapter    Faraday.default_adapter
       end
     end
   end
