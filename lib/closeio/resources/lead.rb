@@ -2,11 +2,14 @@ module Closeio
   class Client
     module Lead
 
-      def list_leads(options = {}, paginate = false)
+      def list_leads(options = {}, paginate = false, fields = nil)
+        params = { query: options }
+        params.merge!( _fields: fields ) if fields
+
         if paginate
-          paginate(lead_path, query: options)
+          paginate(lead_path, params)
         else
-          get(lead_path, query: options)
+          get(lead_path, params)
         end
       end
 
