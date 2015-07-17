@@ -2,9 +2,9 @@ module Closeio
   class Client
     module Lead
 
-      def list_leads(options = {}, paginate = false, fields = nil)
-        params = { query: options }
-        params.merge!( _fields: fields ) if fields
+      def list_leads(query = {}, paginate = false, fields = nil, options = {})
+        options[:_fields] = fields if fields
+        params = assemble_list_query query, options
 
         if paginate
           paginate(lead_path, params)
@@ -37,6 +37,16 @@ module Closeio
 
       def lead_path(id=nil)
         id ? "lead/#{id}/" : "lead/"
+      end
+
+      def assemble_list_query(query, options)
+        options[:query] = if query.respond_to? :map
+          query.map { |k,v| "#{k}:'#{v}'" }.join(' ')
+        else
+          query
+        end
+
+        options
       end
 
     end
