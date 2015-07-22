@@ -14,6 +14,14 @@ module Closeio
         get("#{email_template_path}#{id}/")
       end
 
+      def render_email_templates(id, params = {}, paginate = false)
+        if paginate
+          paginate("email_template/#{id}/", params)
+        else
+          get("email_template/#{id}/render/", params)
+        end
+      end
+
       def create_email_template(id, options={})
         post(email_template_path, options)
       end
