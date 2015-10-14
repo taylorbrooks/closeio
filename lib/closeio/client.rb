@@ -25,8 +25,8 @@ module Closeio
     attr_reader :api_key, :logger, :ca_file
 
     def initialize(api_key, logger = true, ca_file = nil)
-      @api_key  = api_key
-      @logger   = logger
+      @api_key = api_key
+      @logger  = logger
       @ca_file  = ca_file
     end
 
