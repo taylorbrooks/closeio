@@ -39,16 +39,6 @@ module Closeio
         id ? "lead/#{id}/" : "lead/"
       end
 
-      def assemble_list_query(query, options)
-        options[:query] = if query.respond_to? :map
-          query.map { |k,v| "#{k}:'#{v}'" }.join(' ')
-        else
-          query
-        end
-
-        options
-      end
-
     end
   end
 end

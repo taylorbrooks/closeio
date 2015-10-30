@@ -63,6 +63,15 @@ module Closeio
 
     private
 
+    def assemble_list_query(query, options)
+      options[:query] = if query.respond_to? :map
+        query.map { |k,v| "#{k}:'#{v}'" }.join(' ')
+      else
+        query
+      end
+
+      options
+    end
 
     def connection
       Faraday.new(url: "https://app.close.io/api/v1", headers: { accept: 'application/json' }) do |conn|
