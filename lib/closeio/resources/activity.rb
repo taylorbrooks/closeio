@@ -50,6 +50,10 @@ module Closeio
       #  Call Activities
       #
 
+      def list_calls(options={})
+        get(call_path, options)
+      end
+
       def create_call(options={})
         post(call_path, options)
       end
