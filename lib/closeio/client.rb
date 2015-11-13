@@ -52,7 +52,7 @@ module Closeio
 
       begin
         res   = get(path, options.merge!(_skip: skip))
-        unless res.data.empty?
+        unless res.data.nil? || res.data.empty?
           results.push res.data
           skip += res.data.count
         end
