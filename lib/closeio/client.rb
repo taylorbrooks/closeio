@@ -83,6 +83,7 @@ module Closeio
         conn.response   :logger if logger
         conn.use        FaradayMiddleware::Mashify
         conn.response   :json
+        conn.use        FaradayMiddleware::CloseioErrorHandler
         conn.adapter    Faraday.default_adapter
       end
     end
