@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require_relative "error"
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
 
