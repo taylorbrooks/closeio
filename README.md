@@ -43,6 +43,19 @@ Add this line to your application's Gemfile:
   smart_views.leads
 ````
 
+### Options
+
+You can disable the logger by passing in a second argument when creating a new client:
+```ruby
+  client = Closeio::Client.new("api key", false)
+```
+
+Some servers running on SSL need [specific configurations](https://github.com/lostisland/faraday/wiki/Setting-up-SSL-certificates) for the Faraday dependency.
+If you're running on Heroku with SSL enabled, you need to pass in the path of the CA certificate when creating a new client:
+```ruby
+  client = Closeio::Client.new("api key", true, '/usr/lib/ssl/certs/ca-certificates.crt')
+```
+
 ### History
 
 View the [changelog](https://github.com/taylorbrooks/closeio/blob/master/CHANGELOG.md)
