@@ -11,6 +11,10 @@ module FaradayMiddleware
       case env[:status]
       when 401
         raise Closeio::NotAuthorized, env.body
+      when 404
+        raise Closeio::NotFound, env.body
+      when 504
+        raise Closeio::GatewayTimeout, env.body
       when ERROR_STATUSES
         raise Closeio::Error, "#{env.status}: #{env.body}"
       end
