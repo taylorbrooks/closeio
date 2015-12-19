@@ -1,6 +1,8 @@
 module Closeio
   class Error < StandardError; end
   class NotAuthorized < Error; end
+  class NotFound < Error; end
+  class GatewayTimeout < Error; end
 end
 
 require "faraday"
