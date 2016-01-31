@@ -8,7 +8,7 @@ I :heart: Close.io, so if you have problems using the gem or would like to see s
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'closeio', '~> 2.0'
+  gem 'closeio', '~> 2.4'
 
   # then...
   bundle install
@@ -71,4 +71,4 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 - Suggest or add new features
 
 ### Copyright
-Copyright (c) 2015 Taylor Brooks. See LICENSE for details.
+Copyright (c) 2016 Taylor Brooks. See LICENSE for details.
