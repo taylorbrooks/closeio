@@ -34,6 +34,10 @@ module Closeio
         get(email_path, options)
       end
 
+      def find_email(id)
+        get("#{email_path}#{id}/")
+      end
+
       def create_email(body)
         post(email_path, body)
       end
