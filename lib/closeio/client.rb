@@ -40,7 +40,7 @@ module Closeio
     def get(path, options={})
       result = connection.get(path, options)
       if result.status == 401
-        throw new Closeio::ApiException(401, "Your API key does not let you call #{path}")
+        raise Closeio::ApiException.new(401, "Your API key does not let you call #{path}")
       end
       result.body
     end
