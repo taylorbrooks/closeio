@@ -11,7 +11,7 @@ module Closeio
       end
 
       def create_smart_view(options={})
-        post(smart_view_path)
+        post(smart_view_path, options)
       end
 
       def update_smart_view(id, options={})
