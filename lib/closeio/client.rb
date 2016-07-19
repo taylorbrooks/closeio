@@ -4,6 +4,14 @@ require 'faraday_middleware'
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
 
 module Closeio
+
+
+  class ApiException < Exception
+    def initialize(code, message)
+      super("CloseIO error (#{code}: #{message}")
+    end
+  end
+
   class Client
     include Closeio::Client::Activity
     include Closeio::Client::BulkAction
@@ -30,7 +38,11 @@ module Closeio
     end
 
     def get(path, options={})
-      connection.get(path, options).body
+      result = connection.get(path, options)
+      if result.status == 401
+        raise Closeio::ApiException.new(401, "Your API key does not let you call #{path}")
+      end
+      result.body
     end
 
     def post(path, req_body)
