@@ -10,6 +10,10 @@ module Closeio
         get("me/")
       end
 
+      def api_key
+        get("api_key/#{@api_key}/")
+      end
+
     end
   end
 end
