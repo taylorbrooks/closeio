@@ -22,12 +22,13 @@ module Closeio
     include Closeio::Client::Task
     include Closeio::Client::User
 
-    attr_reader :api_key, :logger, :ca_file
+    attr_reader :api_key, :logger, :ca_file, :errors
 
-    def initialize(api_key, logger = true, ca_file = nil)
+    def initialize(api_key, logger = true, ca_file = nil, errors = false)
       @api_key = api_key
       @logger  = logger
-      @ca_file  = ca_file
+      @ca_file = ca_file
+      @errors  = errors
     end
 
     def get(path, options={})
@@ -84,7 +85,7 @@ module Closeio
         conn.response   :logger if logger
         conn.use        FaradayMiddleware::Mashify
         conn.response   :json
-        conn.use        FaradayMiddleware::CloseioErrorHandler
+        conn.use        FaradayMiddleware::CloseioErrorHandler if errors
         conn.adapter    Faraday.default_adapter
       end
     end

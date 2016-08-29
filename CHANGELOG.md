@@ -1,3 +1,6 @@
+## 2.5.0
+- Add middleware for handling errors when Close.io responds with status codes between 400-599
+
 ## 2.4.0
 
 - Add support for `_fields` parameter on leads resource
