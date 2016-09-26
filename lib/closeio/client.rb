@@ -84,7 +84,6 @@ module Closeio
         conn.basic_auth api_key, ''
         conn.request    :json
         conn.response   :logger if logger
-        conn.use        FaradayMiddleware::Mashify
         conn.response   :object
         conn.use        FaradayMiddleware::CloseioErrorHandler if errors
         conn.adapter    Faraday.default_adapter
