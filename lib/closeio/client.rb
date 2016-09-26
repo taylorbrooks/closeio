@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'faraday_middleware/parse_object'
 require_relative "error"
 
 Dir[File.expand_path('../resources/*.rb', __FILE__)].each{|f| require f}
@@ -62,7 +63,7 @@ module Closeio
         end
       end while res.has_more
       json = {has_more: false, total_results: res.total_results, data: results.flatten}
-      Hashie::Mash.new json
+      OpenStruct.new(json)
     end
 
     private
@@ -84,7 +85,7 @@ module Closeio
         conn.request    :json
         conn.response   :logger if logger
         conn.use        FaradayMiddleware::Mashify
-        conn.response   :json
+        conn.response   :object
         conn.use        FaradayMiddleware::CloseioErrorHandler if errors
         conn.adapter    Faraday.default_adapter
       end

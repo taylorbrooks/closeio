@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency     'faraday'
   s.add_runtime_dependency     'faraday_middleware'
   s.add_runtime_dependency     'json'
-  s.add_runtime_dependency     'hashie'
+  s.add_runtime_dependency     'faraday_middleware-parse_json_object'
 
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'rake'
