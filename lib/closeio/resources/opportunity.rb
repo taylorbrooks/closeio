@@ -3,7 +3,7 @@ module Closeio
     module Opportunity
 
       def list_opportunities(options={})
-        get(opportunity_path, query: options)
+        get(opportunity_path, options)
       end
 
       def find_opportunity(id)
