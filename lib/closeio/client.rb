@@ -78,8 +78,10 @@ module Closeio
     end
 
     def connection
-      Faraday.new(url: "https://app.close.io/api/v1", headers: { accept: 'application/json' }, ssl: {
-    ca_file: ca_file}) do |conn|
+      Faraday.new(url: "https://app.close.io/api/v1", headers: {
+        accept: 'application/json',
+        'User-Agent' => "closeio-ruby-gem/v#{Closeio::VERSION}"
+      }, ssl: { ca_file: ca_file}) do |conn|
         conn.basic_auth api_key, ''
         conn.request    :json
         conn.response   :logger if logger
