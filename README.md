@@ -28,6 +28,21 @@ Add this line to your application's Gemfile:
   lead.data.contacts
   lead.data.opportunities
 
+  # Update the lead
+  client.update_lead(lead.id,
+    name: "Bluth Company",
+    addresses: [{
+      "address_1": "747 Howard St",
+      "city": "San Francisco"
+    }]
+  )
+
+  # Delete the lead
+  client.delete_lead(lead.id)
+
+  # Merge two leads into one
+  client.merge_leads(source_lead.id, destination_lead.id)
+
   # Find leads that match fields
   client.list_leads('custom.favorite_color:"cornflower blue"')
 
