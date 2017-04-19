@@ -43,8 +43,14 @@ Add this line to your application's Gemfile:
   # Merge two leads into one
   client.merge_leads(source_lead.id, destination_lead.id)
 
-  # Find leads that match fields
-  client.list_leads('custom.favorite_color:"cornflower blue"')
+  # Find leads that match field
+  client.list_leads(name: "Wayne Enterprises")
+
+  # Find leads that match custom field
+  client.list_leads('"custom.Favorite Color":"cornflower blue"')
+
+  # Use paginate: true to fetch all the leads
+  client.list_leads(name: "Wayne Enterprises", paginate: true)
 
   # Create a lead
   client.create_lead(
@@ -53,6 +59,14 @@ Add this line to your application's Gemfile:
       name: "Buster Bluth",
       emails: [{type: "office", email: "cartographer@bluthcompany.com"}]
     }]
+  )
+
+  # Create a bulk edit job for leads filtered by a custom field
+  client.bulk_edit(
+    query: '"custom.International Database ID":12345',
+    type: 'set_custom_field',
+    custom_field_name: 'Local Database ID',
+    custom_field_value: '123'
   )
 
   # Saved Search (SmartView)
