@@ -14,12 +14,16 @@ module Closeio
         get(note_path, options)
       end
 
+      def find_note(id)
+        get("#{note_path}#{id}/")
+      end
+
       def create_note(options)
         post(note_path, options)
       end
 
-      def update_note(id)
-        get("#{note_path}#{id}/")
+      def update_note(id, options={})
+        put("#{note_path}#{id}/", options)
       end
 
       def delete_note(id)
