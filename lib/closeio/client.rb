@@ -13,6 +13,7 @@ module Closeio
     include Closeio::Client::CustomField
     include Closeio::Client::EmailAccount
     include Closeio::Client::EmailTemplate
+    include Closeio::Client::Event
     include Closeio::Client::IntegrationLink
     include Closeio::Client::Lead
     include Closeio::Client::LeadStatus

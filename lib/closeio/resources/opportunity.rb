@@ -2,8 +2,12 @@ module Closeio
   class Client
     module Opportunity
 
-      def list_opportunities(options={})
-        get(opportunity_path, options)
+      def list_opportunities(options={}, paginate = false)
+        if paginate
+          paginate(opportunity_path, options)
+        else
+          get(opportunity_path, options)
+        end
       end
 
       def find_opportunity(id)
