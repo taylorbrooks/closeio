@@ -1,32 +1,34 @@
 PATH
   remote: .
   specs:
-    closeio (2.6.0)
+    closeio (2.6.9)
       faraday
       faraday_middleware
-      hashie
       json
 
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.7)
-    crack (0.4.2)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    faraday (0.10.0)
+    faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.10.1)
+    faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
-    hashie (3.4.6)
-    json (2.0.2)
-    minitest (5.5.1)
+    hashdiff (0.3.6)
+    json (2.1.0)
+    minitest (5.10.3)
     multipart-post (2.0.0)
-    rake (10.1.0)
+    public_suffix (3.0.0)
+    rake (12.0.0)
     safe_yaml (1.0.4)
-    vcr (2.9.3)
-    webmock (1.20.4)
+    vcr (3.0.3)
+    webmock (3.0.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -40,4 +42,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.6
+   1.15.4

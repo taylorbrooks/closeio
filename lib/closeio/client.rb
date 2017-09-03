@@ -65,8 +65,7 @@ module Closeio
           skip += res.data.count
         end
       end while res.has_more
-      json = {has_more: false, total_results: res.total_results, data: results.flatten}
-      Hashie::Mash.new json
+      {has_more: false, total_results: res.total_results, data: results.flatten}
     end
 
     private
@@ -90,7 +89,6 @@ module Closeio
         conn.basic_auth api_key, ''
         conn.request    :json
         conn.response   :logger if logger
-        conn.use        FaradayMiddleware::Mashify
         conn.response   :json
         conn.use        FaradayMiddleware::CloseioErrorHandler if errors
         conn.adapter    Faraday.default_adapter
