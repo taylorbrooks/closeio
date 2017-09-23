@@ -25,13 +25,14 @@ module Closeio
     include Closeio::Client::Task
     include Closeio::Client::User
 
-    attr_reader :api_key, :logger, :ca_file, :errors
+    attr_reader :api_key, :logger, :ca_file, :errors, :utc_offset
 
-    def initialize(api_key, logger = true, ca_file = nil, errors = false)
+    def initialize(api_key, logger = true, ca_file = nil, errors = false, utc_offset: 0)
       @api_key = api_key
       @logger  = logger
       @ca_file = ca_file
       @errors  = errors
+      @utc_offset = utc_offset
     end
 
     def get(path, options={})
@@ -83,7 +84,8 @@ module Closeio
     def connection
       Faraday.new(url: "https://app.close.io/api/v1", headers: {
         accept: 'application/json',
-        'User-Agent' => "closeio-ruby-gem/v#{Closeio::VERSION}"
+        'User-Agent' => "closeio-ruby-gem/v#{Closeio::VERSION}",
+        'X-TZ-Offset' => utc_offset.to_s
       }, ssl: { ca_file: ca_file}) do |conn|
         conn.basic_auth api_key, ''
         conn.request    :json
