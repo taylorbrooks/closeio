@@ -87,6 +87,14 @@ If you're running on Heroku with SSL enabled, you need to pass in the path of th
   client = Closeio::Client.new("api key", true, '/usr/lib/ssl/certs/ca-certificates.crt')
 ```
 
+Timezone Offsets
+For requests that include date filters like date_created or date_start, you can use the `utc_offset` named parameter to pass your timezone's UTC offset as part of your request. By default all API calls uses the UTC time.
+```ruby
+  utc_offset = Time.zone.utc_offset.to_f / 1.hour
+  client = Closeio::Client.new("api key", utc_offset: utc_offset)
+```
+
+
 ### History
 
 View the [changelog](https://github.com/taylorbrooks/closeio/blob/master/CHANGELOG.md)
