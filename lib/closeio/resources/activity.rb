@@ -55,6 +55,22 @@ module Closeio
       end
 
       #
+      #  EmailThread Activities
+      #
+
+      def list_emailthreads(options={})
+        get(emailthread_path, options)
+      end
+
+      def find_emailthread(id)
+        get("#{emailthread_path}#{id}/")
+      end
+
+      def delete_emailthread(id)
+        delete("#{emailthread_path}#{id}/")
+      end
+
+      #
       #  Call Activities
       #
 
@@ -82,6 +98,10 @@ module Closeio
 
       def email_path
         "activity/email/"
+      end
+
+      def emailthread_path
+        "activity/emailthread/"
       end
 
       def call_path
