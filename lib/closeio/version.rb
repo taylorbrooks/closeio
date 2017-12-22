@@ -1,3 +1,3 @@
 module Closeio
-  VERSION = '2.6.10'
+  VERSION = '3.0.0'
 end
