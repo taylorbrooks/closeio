@@ -59,13 +59,13 @@ module Closeio
       skip    = 0
 
       begin
-        res   = get(path, options.merge!(_skip: skip))
-        unless res.data.nil? || res.data.empty?
-          results.push res.data
-          skip += res.data.count
+        res = get(path, options.merge!(_skip: skip))
+        unless res['data'].nil? || res['data'].empty?
+          results.push res['data']
+          skip += res['data'].count
         end
-      end while res.has_more
-      {has_more: false, total_results: res.total_results, data: results.flatten}
+      end while res['has_more']
+      {has_more: false, total_results: res['total_results'], data: results.flatten}
     end
 
     private
