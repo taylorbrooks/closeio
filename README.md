@@ -24,9 +24,9 @@ Add this line to your application's Gemfile:
   client.find_lead('lead_xxxxxxxxxxxx')
 
   # See some data about the lead
-  lead.data.addresses
-  lead.data.contacts
-  lead.data.opportunities
+  lead[:data][:addresses]
+  lead[:data][:contacts]
+  lead[:data][:opportunities]
 
   # Update the lead
   client.update_lead(lead.id,
@@ -71,7 +71,7 @@ Add this line to your application's Gemfile:
 
   # Saved Search (SmartView)
   smart_view = client.list_smart_views
-  smart_views.leads
+  smart_views[:data][:leads]
 ````
 
 ### Options
@@ -110,4 +110,4 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 - Suggest or add new features
 
 ### Copyright
-Copyright (c) 2016 Taylor Brooks. See LICENSE for details.
+Copyright (c) 2018 Taylor Brooks. See LICENSE for details.
