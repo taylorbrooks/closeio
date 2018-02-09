@@ -65,7 +65,7 @@ module Closeio
           skip += res['data'].count
         end
       end while res['has_more']
-      {has_more: false, total_results: res['total_results'], data: results.flatten}
+      {'has_more' => false, 'total_results' => res['total_results'], 'data' => results.flatten}
     end
 
     private

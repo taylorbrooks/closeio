@@ -21,12 +21,13 @@ Add this line to your application's Gemfile:
   client = Closeio::Client.new("api key")
 
   # Find a specific lead
-  client.find_lead('lead_xxxxxxxxxxxx')
+  lead = client.find_lead('lead_xxxxxxxxxxxx')
 
   # See some data about the lead
-  lead[:data][:addresses]
-  lead[:data][:contacts]
-  lead[:data][:opportunities]
+  lead['addresses']
+  lead['contacts']
+  lead['opportunities']
+  lead['tasks']
 
   # Update the lead
   client.update_lead(lead.id,
@@ -49,8 +50,19 @@ Add this line to your application's Gemfile:
   # Find leads that match custom field
   client.list_leads('"custom.Favorite Color":"cornflower blue"')
 
-  # Use paginate: true to fetch all the leads
-  client.list_leads(name: "Wayne Enterprises", paginate: true)
+  # Use splat to fetch all the leads
+  # Use `paginate: true` option to get more than 100 results
+  all_leads = client.list_leads("*", paginate: true)
+
+  # Inspect 'data' key to see array of fetched leads
+  all_leads['data']
+
+  # Inspect the following keys to detect an error
+  # For collection of resouces (e.g. bulk_edit)
+  all_leads['errors']
+  all_leads['field-errors']
+  # For a single resource
+  all_leads['error'] # For single resource
 
   # Create a lead
   client.create_lead(
