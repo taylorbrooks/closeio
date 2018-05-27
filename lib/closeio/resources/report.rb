@@ -14,7 +14,7 @@ module Closeio
 
       # OPTIONS [date_start, date_end, user_id]
       def sent_emails_report(organization_id, options = {})
-        get("report/sent_email/#{organization_id}/", options)
+        get("report/sent_emails/#{organization_id}/", options)
       end
 
     end
