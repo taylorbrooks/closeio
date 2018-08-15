@@ -1,8 +1,7 @@
 module Closeio
   class Client
     module Contact
-
-      def list_contacts(params=nil)
+      def list_contacts(_params = nil)
         get(contact_path)
       end
 
@@ -24,10 +23,9 @@ module Closeio
 
       private
 
-      def contact_path(id=nil)
-        id ? "contact/#{id}/" : "contact/"
+      def contact_path(id = nil)
+        id ? "contact/#{id}/" : 'contact/'
       end
-
     end
   end
 end

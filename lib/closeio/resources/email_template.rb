@@ -1,7 +1,6 @@
 module Closeio
   class Client
     module EmailTemplate
-
       def list_email_templates(params = {}, paginate = false)
         if paginate
           paginate(email_template_path, params)
@@ -22,11 +21,11 @@ module Closeio
         end
       end
 
-      def create_email_template(id, options={})
+      def create_email_template(_id, options = {})
         post(email_template_path, options)
       end
 
-      def update_email_template(id, options={})
+      def update_email_template(id, options = {})
         put("#{email_template_path}#{id}/", options)
       end
 
@@ -37,7 +36,7 @@ module Closeio
       private
 
       def email_template_path
-        "email_template/"
+        'email_template/'
       end
     end
   end

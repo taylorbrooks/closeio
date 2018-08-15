@@ -1,7 +1,6 @@
 module Closeio
   class Client
     module Lead
-
       def list_leads(query = {}, paginate = false, fields = nil, options = {})
         options[:_fields] = fields if fields
         params = assemble_list_query query, options
@@ -30,15 +29,14 @@ module Closeio
       end
 
       def merge_leads(id_source, id_destination)
-        post('lead/merge/', { source: id_source, destination: id_destination })
+        post('lead/merge/', source: id_source, destination: id_destination)
       end
 
       private
 
-      def lead_path(id=nil)
-        id ? "lead/#{id}/" : "lead/"
+      def lead_path(id = nil)
+        id ? "lead/#{id}/" : 'lead/'
       end
-
     end
   end
 end

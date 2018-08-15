@@ -1,7 +1,6 @@
 module Closeio
   class Client
     module SmartView
-
       def list_smart_views
         get(smart_view_path)
       end
@@ -10,11 +9,11 @@ module Closeio
         get(smart_view_path(id))
       end
 
-      def create_smart_view(options={})
+      def create_smart_view(options = {})
         post(smart_view_path, options)
       end
 
-      def update_smart_view(id, options={})
+      def update_smart_view(id, options = {})
         put(smart_view_path(id), options)
       end
 
@@ -24,10 +23,9 @@ module Closeio
 
       private
 
-      def smart_view_path(id=nil)
-        id ? "saved_search/#{id}/" : "saved_search/"
+      def smart_view_path(id = nil)
+        id ? "saved_search/#{id}/" : 'saved_search/'
       end
-
     end
   end
 end

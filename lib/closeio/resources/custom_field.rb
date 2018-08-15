@@ -1,7 +1,6 @@
 module Closeio
   class Client
     module CustomField
-
       def list_custom_fields
         get(custom_field_path)
       end
@@ -10,11 +9,11 @@ module Closeio
         get("#{custom_field_path}#{id}/")
       end
 
-      def create_custom_field(options={})
+      def create_custom_field(options = {})
         post(custom_field_path, options)
       end
 
-      def update_custom_field(id, options={})
+      def update_custom_field(id, options = {})
         put("#{custom_field_path}#{id}/", options)
       end
 
@@ -25,9 +24,8 @@ module Closeio
       private
 
       def custom_field_path
-        "custom_fields/lead/"
+        'custom_fields/lead/'
       end
-
     end
   end
 end

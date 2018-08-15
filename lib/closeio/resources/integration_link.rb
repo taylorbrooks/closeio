@@ -1,7 +1,6 @@
 module Closeio
   class Client
     module IntegrationLink
-
       def list_integration_links
         get(integration_link_path)
       end
@@ -10,11 +9,11 @@ module Closeio
         get("#{integration_link_path}#{id}/")
       end
 
-      def create_integration_link(options={})
+      def create_integration_link(options = {})
         post(integration_link_path, options)
       end
 
-      def update_integration_link(id, options={})
+      def update_integration_link(id, options = {})
         put("#{integration_link_path}#{id}/", options)
       end
 
@@ -25,9 +24,8 @@ module Closeio
       private
 
       def integration_link_path
-        "integration_link/"
+        'integration_link/'
       end
-
     end
   end
 end

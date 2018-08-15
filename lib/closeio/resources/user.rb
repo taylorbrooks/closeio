@@ -1,9 +1,8 @@
 module Closeio
   class Client
     module User
-
       def list_users
-        get("user/")
+        get('user/')
       end
 
       def find_user(id)
@@ -11,7 +10,7 @@ module Closeio
       end
 
       def me
-        get("me/")
+        get('me/')
       end
 
       def fetch_api_key

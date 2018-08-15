@@ -5,7 +5,7 @@ module Closeio
   class GatewayTimeout < Error; end
 end
 
-require "faraday"
+require 'faraday'
 module FaradayMiddleware
   class CloseioErrorHandler < Faraday::Response::Middleware
     ERROR_STATUSES = 400..600

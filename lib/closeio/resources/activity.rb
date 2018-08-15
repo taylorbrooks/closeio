@@ -1,8 +1,7 @@
 module Closeio
   class Client
     module Activity
-
-      def list_activities(options={})
+      def list_activities(options = {})
         get(activity_path, options)
       end
 
@@ -10,7 +9,7 @@ module Closeio
       #  Note Activities
       #
 
-      def list_notes(options={})
+      def list_notes(options = {})
         get(note_path, options)
       end
 
@@ -22,7 +21,7 @@ module Closeio
         post(note_path, options)
       end
 
-      def update_note(id, options={})
+      def update_note(id, options = {})
         put("#{note_path}#{id}/", options)
       end
 
@@ -34,7 +33,7 @@ module Closeio
       #  Email Activities
       #
 
-      def list_emails(options={})
+      def list_emails(options = {})
         get(email_path, options)
       end
 
@@ -46,7 +45,7 @@ module Closeio
         post(email_path, body)
       end
 
-      def update_email(id, options={})
+      def update_email(id, options = {})
         put("#{email_path}#{id}/", options)
       end
 
@@ -58,7 +57,7 @@ module Closeio
       #  EmailThread Activities
       #
 
-      def list_emailthreads(options={})
+      def list_emailthreads(options = {})
         get(emailthread_path, options)
       end
 
@@ -74,11 +73,11 @@ module Closeio
       #  Call Activities
       #
 
-      def list_calls(options={})
+      def list_calls(options = {})
         get(call_path, options)
       end
 
-      def create_call(options={})
+      def create_call(options = {})
         post(call_path, options)
       end
 
@@ -89,25 +88,24 @@ module Closeio
       private
 
       def activity_path
-        "activity/"
+        'activity/'
       end
 
       def note_path
-        "activity/note/"
+        'activity/note/'
       end
 
       def email_path
-        "activity/email/"
+        'activity/email/'
       end
 
       def emailthread_path
-        "activity/emailthread/"
+        'activity/emailthread/'
       end
 
       def call_path
-        "activity/call/"
+        'activity/call/'
       end
-
     end
   end
 end

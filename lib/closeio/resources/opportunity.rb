@@ -1,8 +1,7 @@
 module Closeio
   class Client
     module Opportunity
-
-      def list_opportunities(options={}, paginate = false)
+      def list_opportunities(options = {}, paginate = false)
         if paginate
           paginate(opportunity_path, options)
         else
@@ -14,11 +13,11 @@ module Closeio
         get(opportunity_path(id))
       end
 
-      def create_opportunity(options={})
+      def create_opportunity(options = {})
         post(opportunity_path, options)
       end
 
-      def update_opportunity(id, options={})
+      def update_opportunity(id, options = {})
         put(opportunity_path(id), options)
       end
 
@@ -28,10 +27,9 @@ module Closeio
 
       private
 
-      def opportunity_path(id=nil)
-        id ? "opportunity/#{id}/" : "opportunity/"
+      def opportunity_path(id = nil)
+        id ? "opportunity/#{id}/" : 'opportunity/'
       end
-
     end
   end
 end
