@@ -3,6 +3,7 @@ module Closeio
   class NotAuthorized < Error; end
   class NotFound < Error; end
   class GatewayTimeout < Error; end
+  class TooManyRequests < Error; end
 end
 
 require 'faraday'
@@ -15,6 +16,8 @@ module FaradayMiddleware
         raise Closeio::NotAuthorized, env.body
       when 404
         raise Closeio::NotFound, env.body
+      when 429
+        raise Closeio::TooManyRequests, env.body
       when 504
         raise Closeio::GatewayTimeout, env.body
       when ERROR_STATUSES
