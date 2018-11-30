@@ -23,6 +23,7 @@ module Closeio
     include Closeio::Client::Report
     include Closeio::Client::Sequence
     include Closeio::Client::SequenceSchedule
+    include Closeio::Client::SequenceSubscription
     include Closeio::Client::SmartView
     include Closeio::Client::Task
     include Closeio::Client::User
