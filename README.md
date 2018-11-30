@@ -10,7 +10,7 @@ Fwiw, I also run [DripEmails.com](https://www.DripEmails.com) -- a service for b
 Add this line to your application's Gemfile:
 ````ruby
   # in your Gemfile
-  gem 'closeio', '~> 3.2'
+  gem 'closeio', '~> 3.4'
 
   # then...
   bundle install
