@@ -9,7 +9,7 @@ module Closeio
         get(sequence_subscription_path(id))
       end
 
-      def subscribe_contact(options = {})
+      def create_sequence_subscription(options = {})
         post(sequence_subscription_path, options)
       end
 
