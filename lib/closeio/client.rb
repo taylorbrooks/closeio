@@ -27,6 +27,7 @@ module Closeio
     include Closeio::Client::SmartView
     include Closeio::Client::Task
     include Closeio::Client::User
+    include Closeio::Client::Webhook
 
     attr_reader :api_key, :logger, :ca_file, :errors, :utc_offset
 
