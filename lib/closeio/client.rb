@@ -86,7 +86,7 @@ module Closeio
 
     def connection
       Faraday.new(
-        url: 'https://app.close.io/api/v1',
+        url: 'https://api.close.com/api/v1',
         headers: {
           accept: 'application/json',
           'User-Agent' => "closeio-ruby-gem/v#{Closeio::VERSION}",
