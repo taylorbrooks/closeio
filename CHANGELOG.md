@@ -1,3 +1,7 @@
+## 3.5.0
+
+- Add support for Webhook endpoint
+
 ## 3.4.1
 
 - Add support for email sequence subscriptions
