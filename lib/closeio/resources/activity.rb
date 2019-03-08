@@ -77,6 +77,10 @@ module Closeio
         get(call_path, options)
       end
 
+      def find_call(id)
+        get("#{call_path}#{id}/")
+      end
+
       def create_call(options = {})
         post(call_path, options)
       end
