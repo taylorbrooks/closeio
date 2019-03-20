@@ -1,10 +1,8 @@
 ### A Ruby wrapper for the Close.IO API
 
-Learn about the Closeio API at http://developer.close.io.
+Learn about the Close API at http://developer.close.com.
 
-I :heart: Close.io, so if you have problems using the gem or would like to see support for new endpoints, please open a GitHub issue -- I'll get it resolved as quick as I can.
-
-Fwiw, I also run [DripEmails.com](https://www.DripEmails.com) -- a service for building automated email sequences using Close.io
+I :heart: Close, so if you have problems using the gem or would like to see support for new endpoints, please open a GitHub issue -- I'll get it resolved as quick as I can.
 
 ### Installation
 Add this line to your application's Gemfile:
@@ -110,4 +108,4 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 - Suggest or add new features
 
 ### Copyright
-Copyright (c) 2018 Taylor Brooks. See LICENSE for details.
+Copyright (c) 2019 Taylor Brooks. See LICENSE for details.
