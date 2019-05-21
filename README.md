@@ -1,4 +1,4 @@
-### A Ruby wrapper for the Close.IO API
+### A Ruby wrapper for the Close.com API
 
 Learn about the Close API at http://developer.close.com.
 
