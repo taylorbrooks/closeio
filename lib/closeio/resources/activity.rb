@@ -85,6 +85,30 @@ module Closeio
         delete("#{call_path}#{id}/")
       end
 
+      #
+      #  SMS Activities
+      #
+
+      def list_sms(options = {})
+        get(sms_path, options)
+      end
+
+      def find_sms(id)
+        get("#{sms_path}#{id}/")
+      end
+
+      def create_sms
+        post(sms_path, options)
+      end
+
+      def update_sms
+        put("#{sms_path}#{id}/", options)
+      end
+
+      def delete_sms(id)
+        delete("#{sms_path}#{id}/")
+      end
+
       private
 
       def activity_path
@@ -105,6 +129,10 @@ module Closeio
 
       def call_path
         'activity/call/'
+      end
+
+      def sms_path
+        'activity/sms/'
       end
     end
   end
