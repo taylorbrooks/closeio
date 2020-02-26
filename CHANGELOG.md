@@ -1,3 +1,7 @@
+## 3.6.0
+
+- Add support for SMS activities
+
 ## 3.5.0
 
 - Add support for Webhook endpoint
