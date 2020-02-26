@@ -116,23 +116,23 @@ module Closeio
       end
 
       def note_path
-        'activity/note/'
+        "#{activity_path}note/"
       end
 
       def email_path
-        'activity/email/'
+        "#{activity_path}email/"
       end
 
       def emailthread_path
-        'activity/emailthread/'
+        "#{activity_path}emailthread/"
       end
 
       def call_path
-        'activity/call/'
+        "#{activity_path}call/"
       end
 
       def sms_path
-        'activity/sms/'
+        "#{activity_path}sms/"
       end
     end
   end
