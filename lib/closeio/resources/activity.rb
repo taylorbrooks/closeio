@@ -97,11 +97,11 @@ module Closeio
         get("#{sms_path}#{id}/")
       end
 
-      def create_sms
+      def create_sms(options)
         post(sms_path, options)
       end
 
-      def update_sms
+      def update_sms(id, options = {})
         put("#{sms_path}#{id}/", options)
       end
 
