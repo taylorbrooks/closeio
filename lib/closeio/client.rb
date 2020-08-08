@@ -76,7 +76,7 @@ module Closeio
 
     def assemble_list_query(query, options)
       options[:query] = if query.respond_to? :map
-                          query.map { |k, v| "#{k}:'#{v}'" }.join(' ')
+                          query.map { |k, v| "#{k}:\"#{v}\"" }.join(' ')
                         else
                           query
                         end
