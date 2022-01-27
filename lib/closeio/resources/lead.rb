@@ -1,7 +1,7 @@
 module Closeio
   class Client
     module Lead
-      def list_leads(query = {}, _limit = nil, paginate = false, fields = nil, options = {})
+      def list_leads(query = {}, limit = nil, paginate = false, fields = nil, options = {})
         options[:_fields] = fields if fields
         options[:_limit] = limit if limit
         params = assemble_list_query query, options
