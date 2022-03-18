@@ -94,7 +94,7 @@ module Closeio
         },
         ssl: { ca_file: ca_file }
       ) do |conn|
-        conn.basic_auth api_key, ''
+        conn.request    :basic_auth, api_key, ''
         conn.request    :json
         conn.response   :logger if logger
         conn.response   :json
