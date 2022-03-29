@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    closeio (3.7.0)
+    closeio (3.8.0)
       faraday
       faraday_middleware
       json
@@ -13,7 +13,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    faraday (1.9.3)
+    faraday (1.10.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
