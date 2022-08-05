@@ -1,2 +1,3 @@
 closeio-*.gem
 .env
+Gemfile.lock
