@@ -85,6 +85,10 @@ module Closeio
         post(call_path, options)
       end
 
+      def update_call(id, options = {})
+        put("#{call_path}#{id}/", options)
+      end
+
       def delete_call(id)
         delete("#{call_path}#{id}/")
       end
