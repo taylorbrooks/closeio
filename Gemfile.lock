@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    closeio (3.9.0)
+    closeio (3.10.0)
       faraday
       faraday_middleware
       json
