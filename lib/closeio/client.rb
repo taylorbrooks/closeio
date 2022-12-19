@@ -10,6 +10,8 @@ module Closeio
     include Closeio::Client::Activity
     include Closeio::Client::BulkAction
     include Closeio::Client::Contact
+    include Closeio::Client::CustomActivity
+    include Closeio::Client::CustomActivityType
     include Closeio::Client::CustomField
     include Closeio::Client::EmailAccount
     include Closeio::Client::EmailTemplate
