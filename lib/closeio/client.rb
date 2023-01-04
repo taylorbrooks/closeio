@@ -8,6 +8,7 @@ Dir[File.expand_path('../resources/*.rb', __FILE__)].each { |f| require f }
 module Closeio
   class Client
     include Closeio::Client::Activity
+    include Closeio::Client::AdvancedFilter
     include Closeio::Client::BulkAction
     include Closeio::Client::Contact
     include Closeio::Client::CustomActivity
