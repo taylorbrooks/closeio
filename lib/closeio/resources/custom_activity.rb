@@ -5,6 +5,10 @@ module Closeio
         get(custom_activity_path, options)
       end
 
+      def find_custom_activity(id)
+        get("#{custom_activity_path}#{id}/")
+      end
+
       def create_custom_activity(options = {})
         post(custom_activity_path, options)
       end
