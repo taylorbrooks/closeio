@@ -13,6 +13,10 @@ module Closeio
         post(custom_activity_path, options)
       end
 
+      def update_custom_activity(options = {})
+        put("#{custom_activity_path}#{id}/", options)
+      end
+
       def delete_custom_activity(id)
         delete("#{custom_activity_path}#{id}/")
       end
