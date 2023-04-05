@@ -1,3 +1,7 @@
+## NEXT (major version bump required)
+
+- Bump Faraday dependency to 2.x
+
 ## 3.6.1
 
 - Add support for SMS activities
