@@ -1,3 +1,8 @@
+## 3.13.0
+
+- Upgrade to Faraday 2.x
+- Remove faraday_middleware gem
+
 ## 3.6.1
 
 - Add support for SMS activities

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    closeio (3.12.0)
+    closeio (3.13.0)
       faraday
       json
 
