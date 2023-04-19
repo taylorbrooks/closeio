@@ -8,7 +8,7 @@ end
 
 require 'faraday'
 module FaradayMiddleware
-  class CloseioErrorHandler < Faraday::Response::Middleware
+  class CloseioErrorHandler < Faraday::Middleware
     ERROR_STATUSES = 400..600
     def on_complete(env)
       case env[:status]
