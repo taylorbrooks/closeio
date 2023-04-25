@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors       = ['Taylor Brooks']
   s.email         = ['dGJyb29rc0BnbWFpbC5jb20='].map { |e| Base64.decode64(e) }
   s.homepage      = 'https://github.com/taylorbrooks/closeio'
-  s.summary       = 'A Ruby wrapper for the CloseIO API'
-  s.description   = 'A Ruby wrapper for the CloseIO API -- a sales CRM built by salespeople, for salespeople.'
+  s.summary       = 'A Ruby wrapper for the Close API'
+  s.description   = 'A Ruby wrapper for the Close API -- a sales CRM built by salespeople, for salespeople.'
   s.license       = 'MIT'
 
   s.files         = `git ls-files`.split($/)
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.require_paths = ['lib']
 
-  s.add_runtime_dependency     'faraday'
+  s.add_runtime_dependency     'faraday', '> 2.0'
   s.add_runtime_dependency     'json'
 
   s.add_development_dependency 'bundler'
