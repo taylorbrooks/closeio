@@ -13,7 +13,7 @@ module Closeio
         post(custom_activity_path, options)
       end
 
-      def update_custom_activity(options = {})
+      def update_custom_activity(id, options = {})
         put("#{custom_activity_path}#{id}/", options)
       end
 
