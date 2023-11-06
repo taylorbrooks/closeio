@@ -1,8 +1,8 @@
 module Closeio
   class Client
     module Contact
-      def list_contacts(_params = nil)
-        get(contact_path)
+      def list_contacts(options = {})
+        get(contact_path, options)
       end
 
       def find_contact(id)
