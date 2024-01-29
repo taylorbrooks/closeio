@@ -1,3 +1,3 @@
 module Closeio
-  VERSION = '3.16.0'.freeze
+  VERSION = '3.17.0'.freeze
 end
