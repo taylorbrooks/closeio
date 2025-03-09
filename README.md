@@ -19,15 +19,15 @@ Add this line to your application's Gemfile:
   client = Closeio::Client.new("api key")
 
   # Find a specific lead
-  client.find_lead('lead_xxxxxxxxxxxx')
+  lead = client.find_lead('lead_xxxxxxxxxxxx')
 
   # See some data about the lead
-  lead[:data][:addresses]
-  lead[:data][:contacts]
-  lead[:data][:opportunities]
+  lead["addresses"]
+  lead["contacts"]
+  lead["opportunities"]
 
   # Update the lead
-  client.update_lead(lead.id,
+  client.update_lead(lead["id"],
     name: "Bluth Company",
     addresses: [{
       "address_1": "747 Howard St",
@@ -36,9 +36,9 @@ Add this line to your application's Gemfile:
   )
 
   # Delete the lead
-  client.delete_lead(lead.id)
+  client.delete_lead(lead["id"])
 
-  # Merge two leads into one
+  # Given two lead objects with an id property, merge two leads into one
   client.merge_leads(source_lead.id, destination_lead.id)
 
   # Find leads that match field
@@ -66,10 +66,6 @@ Add this line to your application's Gemfile:
     custom_field_name: 'Local Database ID',
     custom_field_value: '123'
   )
-
-  # Saved Search (SmartView)
-  smart_view = client.list_smart_views
-  smart_views[:data][:leads]
 ````
 
 ### Options
